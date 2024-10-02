@@ -119,7 +119,7 @@ function convert_kcal_to_cal(e) {
 
   console.log(`KiloCalories are: ${kCal}`)
   console.log(`Calories are: ${cals}`)
-  convert_output.innerText = `Calories are: ${cals}`;
+  convert_output.innerText = `Calories are: ${cals} calories`;
 
 }
 
