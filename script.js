@@ -1,9 +1,12 @@
 const calorieCounter = document.getElementById('calorie-counter');
 const budgetNumberInput = document.getElementById('budget');
+const kCalInput = document.getElementById('kcal');
 const entryDropdown = document.getElementById('entry-dropdown');
 const addEntryButton = document.getElementById('add-entry');
 const clearButton = document.getElementById('clear');
+const convertButton = document.getElementById('convert')
 const output = document.getElementById('output');
+const convert_output = document.getElementById('convert_output')
 let isError = false;
 
 // you need to use the backslash \ character to escape the + symbol because it has a special meaning in regular expressions.
@@ -103,6 +106,23 @@ function calculateCalories(e) {
   output.classList.remove('hide');
 }
 
+function convert_kcal_to_cal(e) {
+  e.preventDefault();
+  isError = false;
+
+  const kCal = getCaloriesFromInputs([kCalInput]);
+  const cals = (kCal/1000);
+
+  if (isError) {
+    return;
+  }
+
+  console.log(`KiloCalories are: ${kCal}`)
+  console.log(`Calories are: ${cals}`)
+  convert_output.innerText = `Calories are: ${cals}`;
+
+}
+
 function getCaloriesFromInputs(list) {
   let calories = 0;
 
@@ -135,5 +155,6 @@ function clearForm() {
 }
 
 addEntryButton.addEventListener("click", addEntry);
+convertButton.addEventListener("click", convert_kcal_to_cal)
 calorieCounter.addEventListener("submit", calculateCalories);
 clearButton.addEventListener('click', clearForm)
