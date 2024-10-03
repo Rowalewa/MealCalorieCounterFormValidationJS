@@ -85,3 +85,11 @@
   .deficit {
     color: var(--light-green);
   }
+
+  .converter_output_cl{
+    background-color: wheat;
+    border-radius: 10px;
+    text-align: center;
+    font-family: fantasy;
+    box-shadow: 10px 10px blue;
+  }
