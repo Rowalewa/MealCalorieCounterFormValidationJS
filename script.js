@@ -7,6 +7,7 @@ const clearButton = document.getElementById('clear');
 const convertButton = document.getElementById('convert')
 const output = document.getElementById('output');
 const convert_output = document.getElementById('convert_output')
+const converter_output_cl = document.getElementById('.converter_output_cl')
 let isError = false;
 
 // you need to use the backslash \ character to escape the + symbol because it has a special meaning in regular expressions.
@@ -119,8 +120,13 @@ function convert_kcal_to_cal(e) {
 
   console.log(`KiloCalories are: ${kCal}`)
   console.log(`Calories are: ${cals}`)
+  if (kCal === 0){
+    convert_output.innerText = 'Please enter a value in kiloCalories input box';
+    converter_output_cl.style.backgroundColor = 'red';
+    converter_output_cl.style.color = 'white';
+  } else {
   convert_output.innerText = `Calories are: ${cals} calories`;
-
+  }
 }
 
 function getCaloriesFromInputs(list) {
